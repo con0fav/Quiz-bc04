@@ -15,36 +15,56 @@
 //
 //question 1 displays
 
-var tester = document.querySelector(".tester")
-var block = document.querySelector(".testDiv")
-var word = document.querySelector(".testH")
 
-var arrOfObj = [
+var questions = [
     {
-        question: " ",
+        question: "question 1",
         answers: [
-            { text: "a", right: false },
-            { text: "a", right: false },
-            { text: "a", right: false },
-            { text: "a", right: true }]
+            { text: "a1", right: false },
+            { text: "b1", right: false },
+            { text: "c1", right: false },
+            { text: "d1", right: true }]
     }, 
     {
-        question: " ",
+        question: "question 2",
         answers: [
-            { text: "a", right: false },
-            { text: "a", right: false },
-            { text: "a", right: false },
-            { text: "a", right: true }]
+            { text: "a2", right: false },
+            { text: "b2", right: false },
+            { text: "c2", right: false },
+            { text: "d2", right: true }]
     },
     {
-        question: " ",
+        question: "question 3",
         answers: [
-            { text: "a", right: false },
-            { text: "a", right: false },
-            { text: "a", right: false },
-            { text: "a", right: true }]
-    },
+            { text: "a3", right: false },
+            { text: "b3", right: false },
+            { text: "c3", right: false },
+            { text: "d3", right: true }]
+    }
 ]
+
+var questionsIndex = 0;
+var start = document.querySelector("#start");
+var intervalID;
+var timeRemaining = 15 * questions.length;
+var timeEl = document.getElementById("timer");
+var quiz = document.querySelector("#quiz");
+// var questionsEl = document.querySelector("#questions")
+
+
+function timer() {
+    timeEl.textContent = timeRemaining;
+    timeRemaining--;
+    if (timeRemaining <= 0) {
+        clearInterval(intervalID);
+    }
+}
+
+start.addEventListener("click", function(){
+    hideSplash();
+    intervalID = setInterval(timer, 1000);
+    startQuiz();
+});
 
 
 function hideSplash() {
@@ -56,10 +76,56 @@ function hideSplash() {
     }
   }
 
+function startQuiz() {
+    if (questionsIndex < questions.length) {
+        var titleEl = document.createElement("h2");
+        titleEl.textContent = questions[questionsIndex].question;
+        quiz.append(titleEl);
 
-// tester.addEventListener("click", () => {
-//     block.style.display = "block"
-//         word.innerHTML = arrOfObj[0].question
-// })
+        for (let i = 0; i < questions[questionsIndex].answers.length; i++) {
 
-// console.log(arrOfObj[0].question)
+            var qList = document.createElement("li");
+            var qAnswers = document.createElement("button");
+            console.log(qAnswers);
+
+            qAnswers.textContent = questions[questionsIndex].answers[i].text;
+            qList.append(qAnswers);
+            var questionsEl = document.createElement("ul");
+            questionsEl.append(qList);
+            quiz.append(questionsEl);
+
+            qAnswers.addEventListener("click", function(e){
+                
+                console.log(questions[questionsIndex].answers[i]);
+
+                if ( questions[questionsIndex].answers[i].right === true ){
+                    console.log("correct");
+                }
+                else {
+                    console.log("wrong");
+                }
+
+                quiz.innerHTML = "";
+
+                questionsIndex++;
+
+                startQuiz();
+
+            });
+            
+        }
+    }
+
+    else {
+        clearInterval(intervalID);
+        console.log("game over");
+    }
+}
+
+// google recursive functions
+
+// make separate highscore.html and highscore.js
+// input score info into local storage
+// highscore.js gets score info from local storage
+// save as array of objects? score and initials
+// score = time remaining
