@@ -1,0 +1,23 @@
+html body {
+    background-color: whitesmoke;
+}
+
+header {
+    font-size: medium;
+}
+
+header p {
+    text-align: right;
+}
+
+#page {
+    font-size: large;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+#splash h1 {
+    font-size: xx-large;
+}
+
