@@ -22,3 +22,10 @@ header p {
     font-size: xx-large;
 }
 
+#gameover {
+    display: none;
+}
+
+#gameover h1 {
+    font-size: xx-large;
+}

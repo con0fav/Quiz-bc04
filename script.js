@@ -18,28 +18,44 @@
 
 var questions = [
     {
-        question: "question 1",
+        question: "What record label released Birth of a New Day by 2814?",
         answers: [
-            { text: "a1", right: false },
-            { text: "b1", right: false },
-            { text: "c1", right: false },
-            { text: "d1", right: true }]
+            { text: "Fortune 500", right: false },
+            { text: "Dream Catalogue", right: true },
+            { text: "Business Casual", right: false },
+            { text: "Beer on the Rug", right: false }]
     }, 
     {
-        question: "question 2",
+        question: "Who is generally considered to have pioneered Mallsoft?",
         answers: [
-            { text: "a2", right: false },
-            { text: "b2", right: false },
-            { text: "c2", right: false },
-            { text: "d2", right: true }]
+            { text: "Cat Sys Corp", right: true },
+            { text: "Windows 96", right: false },
+            { text: "Hantasi", right: false },
+            { text: "Cosmic Cycler", right: false }]
     },
     {
-        question: "question 3",
+        question: "Hit Vibes was an album made by which artist?",
         answers: [
-            { text: "a3", right: false },
-            { text: "b3", right: false },
-            { text: "c3", right: false },
-            { text: "d3", right: true }]
+            { text: "Saint Pepsi", right: false },
+            { text: "Luxury Elite", right: false },
+            { text: "Macintosh Plus", right: false },
+            { text: "waterfront dining", right: true }]
+    },
+    {
+        question: "Far Side Virtual is an example of which subgenre?",
+        answers: [
+            { text: "Mallsoft", right: false },
+            { text: "Late Night Lo-fi", right: false },
+            { text: "Eccojams", right: false },
+            { text: "Utopian Virtual", right: true }]
+    },
+    {
+        question: "What is the most popular format for physical vaporwave albums?",
+        answers: [
+            { text: "CD", right: false },
+            { text: "Minidisc", right: false },
+            { text: "Cassette", right: true },
+            { text: "Vinyl", right: false }]
     }
 ]
 
@@ -49,6 +65,8 @@ var intervalID;
 var timeRemaining = 15 * questions.length;
 var timeEl = document.getElementById("timer");
 var quiz = document.querySelector("#quiz");
+var end = document.querySelector("#gameover");
+var replay = document.querySelector("#replay");
 // var questionsEl = document.querySelector("#questions")
 
 
@@ -66,6 +84,10 @@ start.addEventListener("click", function(){
     startQuiz();
 });
 
+replay.addEventListener("click", function(){
+    window.location.reload();
+});
+
 
 function hideSplash() {
     var x = document.getElementById("splash");
@@ -74,9 +96,22 @@ function hideSplash() {
     } else {
       x.style.display = "none";
     }
-  }
+}
+
+function showOver() {
+    var y = document.getElementById("gameover");
+    if (y.style.display === "block") {
+      y.style.display = "none";
+    } else {
+      y.style.display = "block";
+    }
+}
 
 function startQuiz() {
+
+    // document.getElementById("gameover").style.display == "none";    
+
+
     if (questionsIndex < questions.length) {
         var titleEl = document.createElement("h2");
         titleEl.textContent = questions[questionsIndex].question;
@@ -119,8 +154,23 @@ function startQuiz() {
     else {
         clearInterval(intervalID);
         console.log("game over");
+
+        showOver();
     }
 }
+
+
+
+
+
+function saveScore() {
+    var name
+
+
+
+}
+
+
 
 // google recursive functions
 
