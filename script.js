@@ -67,6 +67,7 @@ var timeEl = document.getElementById("timer");
 var quiz = document.querySelector("#quiz");
 var end = document.querySelector("#gameover");
 var replay = document.querySelector("#replay");
+var score = document.querySelector("#scorename")
 // var questionsEl = document.querySelector("#questions")
 
 
@@ -164,10 +165,8 @@ function startQuiz() {
 
 
 function saveScore() {
-    var name
-
-
-
+    localStorage.setItem("score", JSON.stringify(score));
+    
 }
 
 
