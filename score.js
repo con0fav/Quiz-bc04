@@ -1,3 +1,18 @@
+// add variables for score form, submit score button
+
+
+init();
+
+function init() {
+    var savedScore = JSON.parse(localStorage.getItem("score"));
+
+    if (savedScore !== null) {
+        score = savedScore;
+    }
+
+    showScore();
+}
+
 function showScore() {
 
     for (let i = 0; i < score.length; i++) {
@@ -7,8 +22,10 @@ function showScore() {
         li.textContent = score;
         li.setAttribute("dataIndex", i);
 
-        score.appendChild(li);
-        
+        score.appendChild(li);   
     }
+}
 
+function storeScore() {
+    localStorage.setItem("score", JSON.stringify(score));
 }
