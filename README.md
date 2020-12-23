@@ -10,3 +10,6 @@ This was built using vanilla javascript, CSS, and HTML.
 ## Screenshot and link
 ![Imgur](https://i.imgur.com/fJmbVuC.jpg)
 [Link to live page](https://con0fav.github.io/Quiz-bc04/)
+
+## Planned Features
+More score support, local storage saving, enhanced UI.
