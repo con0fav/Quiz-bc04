@@ -8,5 +8,5 @@ Visit the webpage and do your best to answer the questions.
 This was built using vanilla javascript, CSS, and HTML.
 
 ## Screenshot and link
-[Imgur](https://i.imgur.com/fJmbVuC.jpg)
+![Imgur](https://i.imgur.com/fJmbVuC.jpg)
 [Link to live page](https://con0fav.github.io/Quiz-bc04/)
