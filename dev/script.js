@@ -36,7 +36,7 @@ var questions = [
     {
         question: "Hit Vibes was an album made by which artist?",
         answers: [
-            { text: "Saint Pepsi", right: false },
+            { text: "Saint Pepsi", right: true },
             { text: "Luxury Elite", right: false },
             { text: "Macintosh Plus", right: false },
             { text: "waterfront dining", right: true }]
@@ -67,7 +67,8 @@ var timeEl = document.getElementById("timer");
 var quiz = document.querySelector("#quiz");
 var end = document.querySelector("#gameover");
 var replay = document.querySelector("#replay");
-var score = document.querySelector("#scorename")
+var score = document.querySelector("#scorename");
+
 // var questionsEl = document.querySelector("#questions")
 
 
@@ -105,7 +106,10 @@ function showOver() {
       y.style.display = "none";
     } else {
       y.style.display = "block";
-    }
+    };
+
+    var scoretotal = document.querySelector("#scoretotal");
+    scoretotal.textContent = timeRemaining;
 }
 
 function startQuiz() {
@@ -122,7 +126,7 @@ function startQuiz() {
 
             var qList = document.createElement("li");
             var qAnswers = document.createElement("button");
-            console.log(qAnswers);
+            // console.log(qAnswers);
 
             qAnswers.textContent = questions[questionsIndex].answers[i].text;
             qList.append(qAnswers);
@@ -132,7 +136,7 @@ function startQuiz() {
 
             qAnswers.addEventListener("click", function(e){
                 
-                console.log(questions[questionsIndex].answers[i]);
+                // console.log(questions[questionsIndex].answers[i]);
 
                 if ( questions[questionsIndex].answers[i].right === true ){
                     console.log("correct");
@@ -165,16 +169,19 @@ function startQuiz() {
 
 
 function saveScore() {
+    var scorename = score.nodeValue.trim();
+
+    var newName = {
+        score: timeRemaining,
+        scorename: scorename
+    };
+
     localStorage.setItem("score", JSON.stringify(score));
-    
+    console.log(localStorage);
 }
 
 
 
-// google recursive functions
-
-// make separate highscore.html and highscore.js
 // input score info into local storage
 // highscore.js gets score info from local storage
 // save as array of objects? score and initials
-// score = time remaining

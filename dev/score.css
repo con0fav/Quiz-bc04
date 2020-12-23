@@ -1,0 +1,19 @@
+html body {
+    background-color: whitesmoke;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    color: black;
+}
