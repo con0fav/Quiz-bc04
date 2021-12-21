@@ -14,5 +14,5 @@ This was built using vanilla javascript, CSS, and HTML.
 ## Future Development
 Scoreboard support, local storage save feature, adding to the UI, more questions, question categories.
 
-# UI features needed:
+## UI features needed:
 Better colors, custom buttons, unified page design, link to navigate to score page.
