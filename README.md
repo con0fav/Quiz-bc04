@@ -11,5 +11,8 @@ This was built using vanilla javascript, CSS, and HTML.
 ![Imgur](https://i.imgur.com/fJmbVuC.jpg)
 [Link to live page](https://con0fav.github.io/Quiz-bc04/)
 
-## Planned Features
-More score support, local storage saving, enhanced UI.
+## Future Development
+Scoreboard support, local storage save feature, adding to the UI, more questions, question categories.
+
+# UI features needed:
+Better colors, custom buttons, unified page design, link to navigate to score page.
